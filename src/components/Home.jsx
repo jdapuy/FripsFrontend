@@ -25,10 +25,10 @@ const Home = () => {
             <img src={friendsCountry} alt="FRIENDS" className="w-full h-auto" />
           </div>
           <div className="w-1/2 p-8">
-            <h1 className="text-4xl font-bold text-gray-800 mb-4">
+            <h1 className="text-4xl font-bold dark:text-white text-gray-800 mb-4">
               ¿Buscás armar un viaje con tus amigos?
             </h1>
-            <p className="text-2xl text-gray-600 my-10">
+            <p className="text-2xl dark:text-white text-gray-600 my-10">
               Con FRIPS serás capaz de seleccionar que país quieren visitar con
               un simple click.
             </p>
@@ -65,29 +65,29 @@ const Home = () => {
           </h1>
         </div>
 
-        <div className="flex items-center justify-center bg-white-100 min-h-60">
-          <ul className="flex list-none">
-            <li className="mr-8">
+        <div className="flex  items-center justify-center bg-white-100 min-h-60">
+          <ul className="flex flex-col xl:flex xl:flex-row justify-between gap list-none">
+            <li className="m-8 ">
               <div className="flex items-center justify-center w-40 h-40 rounded-full bg-blue-600 text-white text-2xl font-amatica">
                 Km Viajados
               </div>
             </li>
-            <li className="mr-8">
+            <li className="m-8">
               <div className="flex items-center justify-center w-40 h-40 rounded-full bg-yellow-500 text-white text-2xl font-amatica">
                 Archivos Importantes
               </div>
             </li>
-            <li className="mr-8">
+            <li className="m-8">
               <div className="flex items-center justify-center w-40 h-40 rounded-full bg-blue-600 text-white text-2xl font-amatica">
                 Itinerarios Diarios
               </div>
             </li>
-            <li className="mr-8">
+            <li className="m-8">
               <div className="flex items-center justify-center w-40 h-40 rounded-full bg-yellow-500 text-white text-2xl font-amatica">
                 Gastos Totales
               </div>
             </li>
-            <li className="mr-8">
+            <li className="m-8">
               <div className="flex items-center justify-center w-40 h-40 rounded-full bg-blue-600 text-white text-2xl font-amatica">
                 Reseñas
               </div>
