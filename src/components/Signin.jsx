@@ -6,7 +6,7 @@ const Signin = () => {
     <div>
       <form>
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0 h-screen">
-          <div className="w-full bg-white rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-0">
+          <div className="w-full bg-white rounded-lg shadow-2xl border-gray-300 border-4 md:mt-0 sm:max-w-md xl:p-0">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
               <p className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
                 Registro

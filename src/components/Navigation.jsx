@@ -7,7 +7,7 @@ const Navigation = () => {
 
   return (
     <>
-      <div className="fixed inset-0 w-full h-full z-[-1]">
+      {/* <div className="fixed inset-0 w-full h-full z-[-1]">
         <svg
           id="visual"
           viewBox="0 0 900 450"
@@ -43,7 +43,7 @@ const Navigation = () => {
             fill="#ffffff"
           ></path>
         </svg>
-      </div>
+      </div> */}
       <nav className="bg-gray-800 w-full fixed top-0 z-10">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between  h-16">
