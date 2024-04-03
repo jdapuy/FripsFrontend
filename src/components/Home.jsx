@@ -6,7 +6,7 @@ import calendar from "/src/assets/images/calendar.png";
 const Home = () => {
   return (
     <div className="bg-white-100 min-h-screen">
-      <div className="bg-white-100 min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center bg-cover bg-center">
         <h1 className="text-8xl font-amatica font-bold text-blue-600 my-4">
           FRIENDS
         </h1>
