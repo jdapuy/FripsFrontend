@@ -6,7 +6,6 @@ import GroupsContainer from "./components/GroupsContainer";
 import Login from "./components/Login";
 import Signin from "./components/Signin";
 import Home from "./components/Home";
-import Home2 from "./components/Home2";
 // import Home from "./components/Home";
 // import NoPage from "./components/NoPage";
 
@@ -16,7 +15,7 @@ function App() {
       <Navigation />
       <Routes>
         Signin
-        <Route path="/" element={<Home2 />} />
+        <Route path="/" element={<Home />} />
         <Route path="/groups" element={<GroupsContainer />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signin" element={<Signin />} />
