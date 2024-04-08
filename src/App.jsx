@@ -6,6 +6,9 @@ import GroupsContainer from "./components/GroupsContainer";
 import Login from "./components/Login";
 import Signin from "./components/Signin";
 import Home from "./components/Home";
+import GroupForm from "./components/GroupForm";
+import ItinerariesContainer from "./components/ItinerariesContainer";
+import Group from "./components/Group";
 // import Home from "./components/Home";
 // import NoPage from "./components/NoPage";
 
@@ -19,6 +22,9 @@ function App() {
         <Route path="/groups" element={<GroupsContainer />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signin" element={<Signin />} />
+        <Route path="/groupForm" element={<GroupForm />} />
+        <Route path="/itineraries" element={<ItinerariesContainer />} />
+        <Route path="/group" element={<Group />} />
         {/* <Route path="*" element={<NoPage />} />  */}
       </Routes>
     </Router>
