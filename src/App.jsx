@@ -9,6 +9,7 @@ import Home from "./components/Home";
 import GroupForm from "./components/GroupForm";
 import ItinerariesContainer from "./components/ItinerariesContainer";
 import Group from "./components/Group";
+import ItineraryForm from "./components/ItineraryForm";
 // import Home from "./components/Home";
 // import NoPage from "./components/NoPage";
 
@@ -25,6 +26,7 @@ function App() {
         <Route path="/groupForm" element={<GroupForm />} />
         <Route path="/itineraries" element={<ItinerariesContainer />} />
         <Route path="/group" element={<Group />} />
+        <Route path="/group/itineraryForm" element={<ItineraryForm />} />
         {/* <Route path="*" element={<NoPage />} />  */}
       </Routes>
     </Router>
