@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import friendsCountry from "/src/assets/images/friendsCountry.png";
 import calendar from "/src/assets/images/calendar.png";
 import Amigos from "/src/assets/images/Amigos.png";
@@ -200,8 +199,8 @@ const Home = () => {
         <div className="flex flex-col justify-center items-center w-3/4 mx-10 mb-60">
           <p className="text-center text-7xl font-comfortaa font-bold text-gray tracking-widest">
             <span className="inline-block text-orange-500">1000 KM</span>
-            <div className="mt-5 h-1 w-full bg-orange-500"></div>
           </p>
+          <div className="mt-5 h-1 w-full bg-orange-500"></div>
           <p className="text-2xl dark:text-white text-gray-600 my-10">
             Segun los destinos que visites, FRIPS te ayuda a calcular cuantos
             kilometros has recorrido

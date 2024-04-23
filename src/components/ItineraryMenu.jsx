@@ -1,6 +1,9 @@
 import React from "react";
+import { Link, useParams } from "react-router-dom";
 
 const ItineraryMenu = () => {
+  const { groupId } = useParams();
+  console.log("grupo #", groupId);
   return (
     <div className="bg-blue-500 flex flex-col justify-center align-middle text-white text-center p-4 pt-20 gap-4 ">
       <div className="opacity-25 absolute self-center justify-self-center">
@@ -51,15 +54,17 @@ c105 28 305 82 445 120 140 38 399 107 575 155 176 47 413 111 527 141 l208
           </g>
         </svg>
       </div>
-      <h1 className="text-4xl font-bold py-4 mb-2">VIAJE A MÉXICO</h1>
+      <h1 className="text-4xl font-bold py-4 mb-2">grupo #{groupId}</h1>
       <div className="top-0 left-0 w-full border-b-4 border-white opacity-15" />
       <div className="flex gap-8 justify-center space-x-4 mt-2">
-        <span
-          href="/planes"
-          className="text-white  text-2xl hover:text-gray-300"
-        >
-          Itinerarios
-        </span>
+        <Link to={`/group/${groupId}`}>
+          <span
+            href="/planes"
+            className="text-white  text-2xl hover:text-gray-300"
+          >
+            Itinerarios
+          </span>
+        </Link>
         <span
           href="/planes"
           className="text-white  text-2xl hover:text-gray-300"
@@ -72,12 +77,14 @@ c105 28 305 82 445 120 140 38 399 107 575 155 176 47 413 111 527 141 l208
         >
           Gastos
         </span>
-        <span
-          href="/calendario"
-          className="text-white  text-2xl hover:text-gray-300"
-        >
-          Calendario
-        </span>
+        <Link to={`/group/${groupId}/calendar`}>
+          <span
+            href="/calendario"
+            className="text-white  text-2xl hover:text-gray-300"
+          >
+            Calendario
+          </span>
+        </Link>
         <span
           href="/km-recorridos"
           className="text-white  text-2xl hover:text-gray-300"

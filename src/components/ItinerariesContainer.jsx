@@ -1,13 +1,14 @@
 import React from "react";
 import ItineraryMenu from "./ItineraryMenu";
 import { Link } from "react-router-dom";
-
+import { useParams } from "react-router-dom";
 const ItinerariesContainer = () => {
+  const { groupId } = useParams();
   return (
     <>
       <div className="pt-8 flex flex-col items-start align-top justify-start h-screen ">
         <button className="w-full justify-center  align-middle text-center  bg-white-500 hover:bg-white-600 text-black font-semibold py-2 px-4 border border-black-700 rounded-lg flex items-center shadow shadow-lg space-x-2">
-          <Link to={`/group/itineraryForm`}>
+          <Link to={`/group/${groupId}/itineraryForm`}>
             <span className="inline-block align-middle">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
