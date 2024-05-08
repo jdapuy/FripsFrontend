@@ -19,7 +19,6 @@ function App() {
     <Router>
       <Navigation />
       <Routes>
-        Signin
         <Route path="/" element={<Home />} />
         <Route path="/groups" element={<GroupsContainer />} />
         <Route path="/login" element={<Login />} />

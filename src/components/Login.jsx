@@ -1,19 +1,77 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { addUser } from "../redux/userSlice";
+import { useNavigate } from "react-router-dom";
 const Login = () => {
+  const navigateTo = useNavigate();
+  const dispatch = useDispatch();
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const serverUrl =
+      import.meta.env.VITE_SERVER_URL || "http://localhost:3001";
+    const { email, password } = formData;
+
+    try {
+      const response = await axios.post(`${serverUrl}/auth/login`, {
+        email,
+        password,
+      });
+      console.log("Login successful:", response.data);
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          userId: response.data.userId,
+          name: response.data.nombre,
+          accessToken: response.data.accessToken,
+          email: response.data.email,
+        })
+      );
+
+      dispatch(
+        addUser({
+          userId: response.data.userId,
+          name: response.data.nombre,
+          accessToken: response.data.accessToken,
+          email: response.data.email,
+        })
+      );
+      // Redireccion
+      navigateTo("/");
+    } catch (error) {
+      console.error("Error al iniciar sesión:", error);
+      // Aquí puedes mostrar un mensaje de error al usuario, manejarlo como desees
+    }
+  };
+
   return (
     <div className="flex flex-col items-center justify-center h-screen ">
       <div className="w-full max-w-md bg-white rounded-lg border-gray-300 border-4 shadow-2xl  p-6">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Login</h2>
-        <form className="flex flex-col">
+        <form className="flex flex-col" onSubmit={handleSubmit}>
           <input
             type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
             className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
             placeholder="Correo electrónico"
           />
           <input
             type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
             className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
             placeholder="Contraseña"
           />
@@ -26,7 +84,7 @@ const Login = () => {
             </Link>
             <p className="text-gray-900 ">
               {" "}
-              Aún no estas Registrado?{" "}
+              Aún no estás Registrado?{" "}
               <Link
                 to="/signin"
                 className="text-sm text-blue-500 -200 hover:underline mt-4"
