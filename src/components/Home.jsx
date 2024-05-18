@@ -9,11 +9,13 @@ import imagenArchivos from "/src/assets/images/imagenArchivos.png";
 import moneda from "/src/assets/images/moneda.png";
 import manosDinero from "/src/assets/images/manosDinero.png";
 import Viajero from "/src/assets/images/Viajero.png";
+import { Toaster } from "react-hot-toast";
 
 const Home = () => {
   return (
     <div>
       {/* Frips */}
+      <Toaster />
       <div
         className="h-80 flex items-center justify-center bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: 'url("/src/assets/images/wavesAzul.png")' }}

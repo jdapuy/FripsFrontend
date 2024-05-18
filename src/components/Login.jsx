@@ -4,6 +4,8 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addUser } from "../redux/userSlice";
 import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
+
 const Login = () => {
   const navigateTo = useNavigate();
   const dispatch = useDispatch();
@@ -46,9 +48,14 @@ const Login = () => {
           email: response.data.email,
         })
       );
+      toast.success(`Bienvenido ${response.data.nombre} 👋🏻`);
       // Redireccion
-      navigateTo("/");
+      // Esperar 4 segundos antes de redireccionar
+      setTimeout(() => {
+        navigateTo("/");
+      }, 2500);
     } catch (error) {
+      toast.error(`Lo sentimos, tu correo o contraseña son incorrectos`);
       console.error("Error al iniciar sesión:", error);
       // Aquí puedes mostrar un mensaje de error al usuario, manejarlo como desees
     }
@@ -56,6 +63,7 @@ const Login = () => {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen ">
+      <Toaster />
       <div className="w-full max-w-md bg-white rounded-lg border-gray-300 border-4 shadow-2xl  p-6">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Login</h2>
         <form className="flex flex-col" onSubmit={handleSubmit}>
