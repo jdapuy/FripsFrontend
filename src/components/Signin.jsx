@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const Signin = () => {
+  const navigateTo = useNavigate();
   const serverUrl = import.meta.env.VITE_SERVER_URL;
   const [formData, setFormData] = useState({
     name: "",
@@ -23,9 +26,16 @@ const Signin = () => {
         email,
         password,
       });
+      toast.success(`Registro exitoso ✔`);
       console.log("Registro exitoso:", response.data);
+      // Redireccion
+      // Esperar 4 segundos antes de redireccionar
+      setTimeout(() => {
+        navigateTo("/login");
+      }, 2500);
       // Aquí puedes redirigir a la página de inicio de sesión o mostrar un mensaje de éxito, etc.
     } catch (error) {
+      toast.error(`Lo sentimos, ha ocurrido un error`);
       console.error("Error al registrar:", error);
       // Aquí puedes mostrar un mensaje de error al usuario, manejarlo como desees
     }
@@ -33,6 +43,7 @@ const Signin = () => {
 
   return (
     <div>
+      <Toaster />
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0 h-screen">
           <div className="w-full bg-white rounded-lg shadow-2xl border-gray-300 border-4 md:mt-0 sm:max-w-md xl:p-0">
