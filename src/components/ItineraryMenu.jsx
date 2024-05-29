@@ -10,7 +10,6 @@ const ItineraryMenu = () => {
     const serverUrl =
       import.meta.env.VITE_SERVER_URL || "http://localhost:3001";
     const user = JSON.parse(localStorage.getItem("user"));
-
     const getGroupInfo = async () => {
       try {
         const response = await axios.get(`${serverUrl}/api/grupo/${groupId}`, {
@@ -27,6 +26,9 @@ const ItineraryMenu = () => {
     getGroupInfo();
   }, [groupId]);
 
+  if (!groupInfo) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className="bg-blue-500 flex flex-col justify-center align-middle text-white text-center p-4 pt-20 gap-4 ">
       <div className="opacity-25 absolute self-center justify-self-center">

@@ -1,7 +1,13 @@
 import React, { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
 import ItineraryMenu from "./ItineraryMenu";
-
+import toast, { Toaster } from "react-hot-toast";
 const ItineraryForm = () => {
+  const navigateTo = useNavigate();
+  const { groupId } = useParams();
+  const storedUser = localStorage.getItem("user");
+  const user = storedUser ? JSON.parse(storedUser) : null; // Parseamos el usuario desde localStorage si existe
   const [itinerary, setItinerary] = useState({
     name: "",
     date: "",
@@ -10,16 +16,52 @@ const ItineraryForm = () => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setItinerary({ ...itinerary, [name]: value });
+    console.log(user?.userId);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aquí puedes manejar la lógica para enviar los datos del itinerario
-    console.log("Datos del itinerario:", itinerary);
+
+    if (!user) {
+      console.error("No user found in localStorage");
+      return; // Detenemos la ejecución si no hay usuario
+    }
+
+    const serverUrl =
+      import.meta.env.VITE_SERVER_URL || "http://localhost:3001";
+    const itineraryData = {
+      nombre: itinerary.name,
+      grupoId: groupId,
+      fecha: itinerary.date,
+      userId: user.userId,
+    };
+
+    try {
+      const response = await axios.post(
+        `${serverUrl}/api/itinerario/`,
+        itineraryData,
+        {
+          headers: {
+            Authorization: `Bearer ${user.accessToken}`,
+          },
+        }
+      );
+      console.log("Itinerario creado:", response.data);
+      toast.success(`Itinerario creado!!`);
+      setTimeout(() => {
+        navigateTo(`/group/${groupId}`);
+      }, 2500);
+      // Manejar la respuesta o redirigir según sea necesario
+    } catch (error) {
+      toast.error(`Lo siento ha sucedido un error`);
+      console.error("Error al crear el itinerario:", error);
+      // Manejar el error según sea necesario
+    }
   };
 
   return (
     <div>
+      <Toaster />
       <ItineraryMenu />
       <div className="flex items-center justify-center h-full">
         <div className="w-full max-w-md bg-white rounded-lg shadow-2xl border-gray-300 border p-8 mt-20">
