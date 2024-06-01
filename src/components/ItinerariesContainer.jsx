@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import ItineraryMenu from "./ItineraryMenu";
 
 const ItinerariesContainer = () => {
   const { groupId } = useParams();
   const [itineraries, setItineraries] = useState([]);
-  const user = JSON.parse(localStorage.getItem("user")); // Asegúrate de que el objeto `user` esté disponible
+  const user = JSON.parse(localStorage.getItem("user"));
   const [deletedItineraries, setDeletedItineraries] = useState([]);
+  const navigateTo = useNavigate();
   useEffect(() => {
     const serverUrl =
       import.meta.env.VITE_SERVER_URL || "http://localhost:3001";
@@ -56,39 +57,46 @@ const ItinerariesContainer = () => {
       console.error("Error deleting group:", error);
     }
   };
+
+  const handlePlan = async (itineraryId) => {
+    navigateTo(`/group/${groupId}/plan/itinerary/${itineraryId}`);
+  };
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0"); // Los meses empiezan desde 0
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  };
   return (
     <div className="pt-8 flex flex-col h-screen">
+      <h1 className="m-10">Itinerarios</h1>
       <div className="flex justify-center px-4 mb-4">
         <Link
           to={`/group/${groupId}/itineraryForm`}
           className="inline-flex items-center px-4 py-2 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-md"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-5 h-5 mr-2"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fillRule="evenodd"
-              d="M4 2a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2H4zm10 3a2 2 0 11-4 0 2 2 0 014 0zm-5 9a1 1 0 100-2 1 1 0 000 2z"
-              clipRule="evenodd"
-            />
-          </svg>
-          Nuevo Itinerario
+          + Nuevo Itinerario
         </Link>
       </div>
-      <main className="p-8 flex flex-col mx-auto align-middle justify-center space-y-4">
+      <main className="p-8  flex flex-row md:flex-col mx-auto align-middle w-2/4 justify-center space-y-4">
         {itineraries.length > 0 ? (
           itineraries.map((itinerary) => (
             <div
               key={itinerary.itinerarioId}
-              className="bg-white shadow-md rounded-lg p-4 flex flex-row items-center justify-center gap-2"
+              className=" shadow-lg bg-gray-300 rounded-lg p-4 flex flex-row items-center justify-center gap-2"
             >
               <div>
                 <h3 className="text-xl font-semibold">{itinerary.nombre}</h3>
-                <p className="text-gray-600">{itinerary.fecha}</p>
+                <p className="text-gray-600">{formatDate(itinerary.fecha)}</p>
               </div>
+              <button
+                onClick={() => handlePlan(itinerary.itinerarioId)}
+                className="bg-blue-500 hover:bg-blue-600 text-2xl text-white rounded-full p-2"
+              >
+                📋
+              </button>
               <button
                 onClick={() => handleDelete(itinerary.itinerarioId)}
                 className="bg-red-500 hover:bg-red-600 text-white rounded-full p-2"

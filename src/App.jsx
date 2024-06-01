@@ -11,6 +11,8 @@ import ItinerariesContainer from "./components/ItinerariesContainer";
 import Group from "./components/Group";
 import ItineraryForm from "./components/ItineraryForm";
 import CalendarComponent from "./components/CalendarComponent";
+import PlansContainer from "./components/PlansContainer";
+import PlanForm from "./components/PlanForm";
 // import Home from "./components/Home";
 // import NoPage from "./components/NoPage";
 
@@ -29,6 +31,14 @@ function App() {
         <Route
           path="/group/:groupId/itineraryForm"
           element={<ItineraryForm />}
+        />
+        <Route
+          path="/group/:groupId/planForm/:itineraryId"
+          element={<PlanForm />}
+        />
+        <Route
+          path="/group/:groupId/plan/itinerary/:itineraryId"
+          element={<PlansContainer />}
         />
         <Route
           path="/group/:groupId/calendar"
