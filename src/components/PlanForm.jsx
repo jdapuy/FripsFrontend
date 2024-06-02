@@ -46,7 +46,7 @@ const PlanForm = () => {
         }
       );
       console.log(response.data);
-      navigateTo(`/group/${groupId}/plan/itinerary/${itineraryId}`); // Redirige después de guardar el plan
+      navigateTo(`/group/${groupId}/itinerary/${itineraryId}/plan`); // Redirige después de guardar el plan
     } catch (error) {
       console.error("Error creating plan:", error);
     }

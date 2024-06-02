@@ -54,12 +54,12 @@ const ItinerariesContainer = () => {
         itineraryId,
       ]);
     } catch (error) {
-      console.error("Error deleting group:", error);
+      console.error("Error deleting itinerary:", error);
     }
   };
 
   const handlePlan = async (itineraryId) => {
-    navigateTo(`/group/${groupId}/plan/itinerary/${itineraryId}`);
+    navigateTo(`/group/${groupId}/itinerary/${itineraryId}/plan`);
   };
 
   const formatDate = (dateString) => {

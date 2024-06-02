@@ -13,6 +13,9 @@ import ItineraryForm from "./components/ItineraryForm";
 import CalendarComponent from "./components/CalendarComponent";
 import PlansContainer from "./components/PlansContainer";
 import PlanForm from "./components/PlanForm";
+import Cloud from "./components/Cloud";
+import GastosContainer from "./components/GastosContainer";
+import GastoForm from "./components/GastoForm";
 // import Home from "./components/Home";
 // import NoPage from "./components/NoPage";
 
@@ -28,17 +31,26 @@ function App() {
         <Route path="/groupForm" element={<GroupForm />} />
         <Route path="/itineraries" element={<ItinerariesContainer />} />
         <Route path="/group/:groupId" element={<Group />} />
+        <Route path="/group/:groupId/cloud" element={<Cloud />} />
         <Route
           path="/group/:groupId/itineraryForm"
           element={<ItineraryForm />}
         />
         <Route
-          path="/group/:groupId/planForm/:itineraryId"
+          path="/group/:groupId/itinerary/:itineraryId/planForm"
           element={<PlanForm />}
         />
         <Route
-          path="/group/:groupId/plan/itinerary/:itineraryId"
+          path="/group/:groupId/itinerary/:itineraryId/plan/:planId/gastoForm"
+          element={<GastoForm />}
+        />
+        <Route
+          path="/group/:groupId/itinerary/:itineraryId/plan"
           element={<PlansContainer />}
+        />
+        <Route
+          path="/group/:groupId/itinerary/:itineraryId/plan/:planId/gastos"
+          element={<GastosContainer />}
         />
         <Route
           path="/group/:groupId/calendar"
