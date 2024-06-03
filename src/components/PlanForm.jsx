@@ -1,44 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ItineraryMenu from "./ItineraryMenu";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import Autocomplete from "react-google-autocomplete";
 
 const PlanForm = () => {
   const { groupId, itineraryId } = useParams();
   const navigateTo = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
-
+  const apiKey = import.meta.env.VITE_MAPS_API_KEY;
   const [formData, setFormData] = useState({
     nombreLugar: "",
     descripcion: "",
     horaLlegada: "",
     horaSalida: "",
-    puntoPartida: "", // Aquí almacenaremos la latitud y longitud
+    puntoPartida: "",
     motivo: "",
+    ubicacion: "",
   });
-
-  useEffect(() => {
-    if ("geolocation" in navigator) {
-      // El navegador soporta la geolocalización
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const latitude = position.coords.latitude;
-          const longitude = position.coords.longitude;
-          const puntoPartida = `${latitude},${longitude}`; // Concatenamos la latitud y longitud en un string
-          setFormData({
-            ...formData,
-            puntoPartida: puntoPartida,
-          });
-        },
-        (error) => {
-          console.error("Error al obtener la ubicación:", error);
-        }
-      );
-    } else {
-      // El navegador no soporta la geolocalización
-      console.error("Geolocalización no disponible en este navegador.");
-    }
-  }, []); // Ejecutar una vez al cargar el componente
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -46,6 +25,22 @@ const PlanForm = () => {
       ...formData,
       [name]: value,
     });
+  };
+
+  const handlePlaceSelected = (place, fieldName) => {
+    const location = {
+      lat: place.geometry.location.lat(),
+      lng: place.geometry.location.lng(),
+    };
+    setFormData((prevState) => ({
+      ...prevState,
+      [fieldName]: JSON.stringify(location),
+    }));
+    console.log(
+      `${fieldName} (latitude, longitude):`,
+      location.lat,
+      location.lng
+    );
   };
 
   const handleSubmit = async (e) => {
@@ -74,10 +69,13 @@ const PlanForm = () => {
       console.error("Error creating plan:", error);
     }
   };
+
   return (
     <div>
       <ItineraryMenu />
+
       <h1 className="m-10 text-3xl font-bold">Nuevo Plan</h1>
+
       <form
         onSubmit={handleSubmit}
         className="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-md space-y-4"
@@ -91,6 +89,15 @@ const PlanForm = () => {
             onChange={handleChange}
             className="w-full mt-2 p-2 border rounded"
             required
+          />
+        </div>
+        <div>
+          <label className="block text-gray-700">Ubicación</label>
+          <Autocomplete
+            className="w-full mt-2 p-2 border rounded"
+            apiKey={apiKey}
+            options={{ fields: ["geometry.location"] }}
+            onPlaceSelected={(place) => handlePlaceSelected(place, "ubicacion")}
           />
         </div>
         <div>
@@ -127,13 +134,13 @@ const PlanForm = () => {
         </div>
         <div>
           <label className="block text-gray-700">Punto de Partida</label>
-          <input
-            type="text"
-            name="puntoPartida"
-            value={formData.puntoPartida}
-            onChange={handleChange}
+          <Autocomplete
             className="w-full mt-2 p-2 border rounded"
-            required
+            apiKey={apiKey}
+            options={{ fields: ["geometry.location"] }}
+            onPlaceSelected={(place) =>
+              handlePlaceSelected(place, "puntoPartida")
+            }
           />
         </div>
         <div>
