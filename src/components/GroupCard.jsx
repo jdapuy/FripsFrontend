@@ -40,6 +40,14 @@ const GroupCard = ({ name, groupId, onDelete }) => {
           </div>
         </div>
       </Link>
+      <div className="flex justify-center px-4 mb-4">
+        <Link
+          to={`/group/${groupId}/addGuest`}
+          className="inline-flex items-center px-4 py-2 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-md"
+        >
+          + Agregar invitado
+        </Link>
+      </div>
     </div>
   );
 };

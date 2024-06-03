@@ -16,6 +16,8 @@ import PlanForm from "./components/PlanForm";
 import Cloud from "./components/Cloud";
 import GastosContainer from "./components/GastosContainer";
 import GastoForm from "./components/GastoForm";
+import AddGuest from "./components/AddGuest";
+import GroupGasto from "./components/GroupGasto";
 // import Home from "./components/Home";
 // import NoPage from "./components/NoPage";
 
@@ -31,7 +33,9 @@ function App() {
         <Route path="/groupForm" element={<GroupForm />} />
         <Route path="/itineraries" element={<ItinerariesContainer />} />
         <Route path="/group/:groupId" element={<Group />} />
+        <Route path="/group/:groupId/gasto" element={<GroupGasto />} />
         <Route path="/group/:groupId/cloud" element={<Cloud />} />
+        <Route path="/group/:groupId/addGuest" element={<AddGuest />} />
         <Route
           path="/group/:groupId/itineraryForm"
           element={<ItineraryForm />}

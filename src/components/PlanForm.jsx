@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ItineraryMenu from "./ItineraryMenu";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
@@ -13,9 +13,32 @@ const PlanForm = () => {
     descripcion: "",
     horaLlegada: "",
     horaSalida: "",
-    puntoPartida: "",
+    puntoPartida: "", // Aquí almacenaremos la latitud y longitud
     motivo: "",
   });
+
+  useEffect(() => {
+    if ("geolocation" in navigator) {
+      // El navegador soporta la geolocalización
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+          const puntoPartida = `${latitude},${longitude}`; // Concatenamos la latitud y longitud en un string
+          setFormData({
+            ...formData,
+            puntoPartida: puntoPartida,
+          });
+        },
+        (error) => {
+          console.error("Error al obtener la ubicación:", error);
+        }
+      );
+    } else {
+      // El navegador no soporta la geolocalización
+      console.error("Geolocalización no disponible en este navegador.");
+    }
+  }, []); // Ejecutar una vez al cargar el componente
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -51,7 +74,6 @@ const PlanForm = () => {
       console.error("Error creating plan:", error);
     }
   };
-
   return (
     <div>
       <ItineraryMenu />

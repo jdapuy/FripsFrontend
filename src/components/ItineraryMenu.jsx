@@ -94,7 +94,7 @@ c105 28 305 82 445 120 140 38 399 107 575 155 176 47 413 111 527 141 l208
             Archivos del grupo
           </span>
         </Link>
-        <Link to="/gastos">
+        <Link to={`/group/${groupId}/gasto`}>
           <span className="text-white text-2xl hover:text-gray-300">
             Gastos
           </span>
