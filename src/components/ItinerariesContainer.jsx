@@ -85,7 +85,6 @@ const ItinerariesContainer = () => {
   };
 
   const handleDelete = async (itineraryId) => {
-    console.log(itineraryId);
     try {
       const serverUrl =
         import.meta.env.VITE_SERVER_URL || "http://localhost:3001";
@@ -127,12 +126,12 @@ const ItinerariesContainer = () => {
           + Nuevo Itinerario
         </Link>
       </div>
-      <main className="p-8 flex flex-row md:flex-col mx-auto align-middle w-2/4 justify-center space-y-4">
+      <main className="p-8 flex flex-col mx-auto align-middle md:w-1/4 justify-center space-y-4">
         {itineraries.length > 0 ? (
           itineraries.map((itinerary) => (
             <div
               key={itinerary.itinerarioId}
-              className="shadow-lg  rounded-lg p-4 flex flex-col items-center justify-center gap-2"
+              className="shadow-lg w-max md:w-auto rounded-lg p-4 flex flex-col items-center justify-center gap-2"
             >
               <div className="flex flex-row gap-4">
                 <div className="flex flex-row gap-4">

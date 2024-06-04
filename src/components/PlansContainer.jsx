@@ -30,7 +30,6 @@ const PlansContainer = () => {
           }
         );
         setPlanes(response?.data?.planes || []);
-        console.log(response.data.planes);
       } catch (error) {
         console.error("Error fetching planes:", error);
       }
@@ -46,7 +45,6 @@ const PlansContainer = () => {
   };
 
   const handleDelete = async (planId) => {
-    console.log(planId);
     try {
       const serverUrl =
         import.meta.env.VITE_SERVER_URL || "http://localhost:3001";
@@ -63,7 +61,6 @@ const PlansContainer = () => {
   };
 
   const handleDeleteGasto = async (gastoId) => {
-    console.log(gastoId);
     try {
       const serverUrl =
         import.meta.env.VITE_SERVER_URL || "http://localhost:3001";
@@ -101,10 +98,13 @@ const PlansContainer = () => {
           + Nuevo Plan
         </Link>
       </div>
-      <main className="p-8 flex flex-col mx-auto align-middle w-2/4 justify-center space-y-4">
+      <main className="p-8 flex flex-col mx-auto align-middle md:w-1/4 justify-center space-y-4">
         {planes?.Plans?.length > 0 ? (
           planes.Plans.map((plan, index) => (
-            <div key={index} className="bg-white shadow-md rounded-lg p-4">
+            <div
+              key={index}
+              className="shadow-lg w-auto rounded-lg p-4 flex flex-col items-center justify-center gap-2"
+            >
               <div className="flex flex-row justify-center gap-4">
                 {plan?.Gastos?.some((gasto) => gasto.userId === user.userId) ? (
                   <div className="flex flex-row gap-4">

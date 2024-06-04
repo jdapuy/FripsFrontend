@@ -27,12 +27,6 @@ const GastoForm = () => {
     const serverUrl =
       import.meta.env.VITE_SERVER_URL || "http://localhost:3001";
 
-    console.log(
-      planId,
-      parseInt(formData.monto, 10),
-      formData.motivo,
-      user?.userId
-    );
     try {
       const response = await axios.post(
         `${serverUrl}/api/gasto`,
@@ -48,7 +42,6 @@ const GastoForm = () => {
           },
         }
       );
-      console.log(response.data);
       navigateTo(`/group/${groupId}/itinerary/${itineraryId}/plan`); // Redirige después de guardar el gasto
     } catch (error) {
       console.error("Error creating gasto:", error);

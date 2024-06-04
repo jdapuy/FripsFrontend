@@ -138,14 +138,44 @@ const Navigation = () => {
               to="/"
               className="text-white block px-3 py-2 rounded-md text-base font-medium"
             >
-              Home
+              Inicio
             </Link>
-            <Link
-              to="/about"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-            >
-              About
-            </Link>
+            {user ? (
+              <Link
+                to="/groups"
+                className="text-white block px-3 py-2 rounded-md text-base font-medium"
+              >
+                Grupos
+              </Link>
+            ) : null}
+            {user ? (
+              <>
+                <p
+                  onClick={handleLogout}
+                  className="text-white block px-3 py-2 rounded-md text-base font-medium"
+                >
+                  Logout
+                </p>
+                <p className="text-white block px-3 py-2 rounded-md text-base font-medium">
+                  Hola, {user.name}
+                </p>
+              </>
+            ) : (
+              <div className="flex flex-col md:flex-row">
+                <Link
+                  to="/login"
+                  className="text-white block px-3 py-2 rounded-md text-base font-medium"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/signin"
+                  className="text-white block px-3 py-2 rounded-md text-base font-medium"
+                >
+                  Sign In
+                </Link>
+              </div>
+            )}
             {/* More links */}
           </div>
         </div>

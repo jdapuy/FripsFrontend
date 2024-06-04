@@ -5,6 +5,7 @@ import axios from "axios";
 const ItineraryMenu = () => {
   const { groupId } = useParams();
   const [groupInfo, setGroupInfo] = useState(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const serverUrl =
@@ -30,8 +31,8 @@ const ItineraryMenu = () => {
     return <div>Loading...</div>;
   }
   return (
-    <div className="bg-blue-500 flex flex-col justify-center align-middle text-white text-center p-4 pt-20 gap-4 ">
-      <div className="opacity-25 absolute self-center justify-self-center">
+    <div className="bg-blue-500 w-full flex flex-col justify-center align-middle text-white text-center p-4 pt-20 gap-4 ">
+      <div className="hidden md:block opacity-25 absolute self-center justify-self-center">
         <svg
           version="1.0"
           xmlns="http://www.w3.org/2000/svg"
@@ -79,36 +80,115 @@ c105 28 305 82 445 120 140 38 399 107 575 155 176 47 413 111 527 141 l208
           </g>
         </svg>
       </div>
-      <h1 className="text-4xl font-bold py-4 mb-2">
-        Grupo {groupInfo.grupo.nombre}
-      </h1>
-      <div className="top-0 left-0 w-full border-b-4 border-white opacity-15" />
-      <div className="flex gap-8 justify-center space-x-4 mt-2">
-        <Link to={`/group/${groupId}`}>
-          <span className="text-white text-2xl hover:text-gray-300">
-            Itinerarios
-          </span>
-        </Link>
-        <Link to={`/group/${groupId}/cloud`}>
-          <span className="text-white text-2xl hover:text-gray-300">
-            Archivos del grupo
-          </span>
-        </Link>
-        <Link to={`/group/${groupId}/gasto`}>
-          <span className="text-white text-2xl hover:text-gray-300">
-            Gastos
-          </span>
-        </Link>
-        <Link to={`/group/${groupId}/calendar`}>
-          <span className="text-white text-2xl hover:text-gray-300">
-            Calendario
-          </span>
-        </Link>
-        <Link to={`/group/${groupId}/kmRecorridos`}>
-          <span className="text-white text-2xl hover:text-gray-300">
-            Km Recorridos
-          </span>
-        </Link>
+      <div className="flex justify-center items-center">
+        <h1 className="hidden md:block text-4xl font-bold py-4 mb-2">
+          Grupo {groupInfo.grupo.nombre}
+        </h1>
+        <button
+          className="md:hidden bg-blue-900 inline-flex items-center justify-center p-2 rounded-md  hover:text-white hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-800 focus:ring-white"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? (
+            <svg
+              className="block h-6 w-6"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          ) : (
+            <svg
+              className="block h-6 w-6"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
+            </svg>
+          )}
+        </button>
+      </div>
+      <div
+        className={`mt-4 md:mt-0 md:flex md:flex-col md:items-center md:space-x-4 ${
+          isMenuOpen ? "block" : "hidden"
+        }`}
+      >
+        <div className="hidden md:block top-0 left-0 w-full border-b-4 border-white opacity-15" />
+        <div className="hidden md:block  gap-8 justify-center space-x-4 mt-2">
+          <Link to={`/group/${groupId}`}>
+            <span className="text-white text-2xl hover:text-gray-300">
+              Itinerarios
+            </span>
+          </Link>
+          <Link to={`/group/${groupId}/cloud`}>
+            <span className="text-white text-2xl hover:text-gray-300">
+              Archivos del grupo
+            </span>
+          </Link>
+          <Link to={`/group/${groupId}/gasto`}>
+            <span className="text-white text-2xl hover:text-gray-300">
+              Gastos
+            </span>
+          </Link>
+          <Link to={`/group/${groupId}/calendar`}>
+            <span className="text-white text-2xl hover:text-gray-300">
+              Calendario
+            </span>
+          </Link>
+          <Link to={`/group/${groupId}/kmRecorridos`}>
+            <span className="text-white text-2xl hover:text-gray-300">
+              Km Recorridos
+            </span>
+          </Link>
+        </div>
+      </div>
+      <div
+        className={`${isMenuOpen ? "block" : "hidden"} md:hidden`}
+        id="mobile-menu"
+      >
+        <div className="flex flex-col px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <Link to={`/group/${groupId}`}>
+            <span className="text-white text-2xl hover:text-gray-300">
+              Itinerarios
+            </span>
+          </Link>
+          <Link to={`/group/${groupId}/cloud`}>
+            <span className="text-white text-2xl hover:text-gray-300">
+              Archivos del grupo
+            </span>
+          </Link>
+          <Link to={`/group/${groupId}/gasto`}>
+            <span className="text-white text-2xl hover:text-gray-300">
+              Gastos
+            </span>
+          </Link>
+          <Link to={`/group/${groupId}/calendar`}>
+            <span className="text-white text-2xl hover:text-gray-300">
+              Calendario
+            </span>
+          </Link>
+          <Link to={`/group/${groupId}/kmRecorridos`}>
+            <span className="text-white text-2xl hover:text-gray-300">
+              Km Recorridos
+            </span>
+          </Link>
+        </div>
+        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3"></div>
       </div>
     </div>
   );

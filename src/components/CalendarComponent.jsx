@@ -73,7 +73,7 @@ const CalendarComponent = () => {
   return (
     <div>
       <ItineraryMenu />
-      <div className="Calendary pt-10 px-20">
+      <div className="Calendary">
         <Calendar
           localizer={localizer}
           events={events}

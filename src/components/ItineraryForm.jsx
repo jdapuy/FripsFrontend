@@ -16,7 +16,6 @@ const ItineraryForm = () => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setItinerary({ ...itinerary, [name]: value });
-    console.log(user?.userId);
   };
 
   const handleSubmit = async (e) => {
@@ -46,7 +45,6 @@ const ItineraryForm = () => {
           },
         }
       );
-      console.log("Itinerario creado:", response.data);
       toast.success(`Itinerario creado!!`);
       setTimeout(() => {
         navigateTo(`/group/${groupId}`);

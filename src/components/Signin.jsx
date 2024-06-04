@@ -27,7 +27,6 @@ const Signin = () => {
         password,
       });
       toast.success(`Registro exitoso ✔`);
-      console.log("Registro exitoso:", response.data);
       // Redireccion
       // Esperar 4 segundos antes de redireccionar
       setTimeout(() => {

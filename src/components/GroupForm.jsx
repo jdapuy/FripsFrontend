@@ -34,9 +34,8 @@ function GroupForm() {
     e.preventDefault();
     try {
       const user = JSON.parse(localStorage.getItem("user"));
-      console.log("user:", user);
+
       guestEmails.push(user.email);
-      console.log("Correos de invitados:", guestEmails);
 
       const createdGroup = await axios.post(
         `${serverUrl}/api/grupo`,

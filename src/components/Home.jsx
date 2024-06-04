@@ -16,22 +16,16 @@ const Home = () => {
     <div>
       {/* Frips */}
       <Toaster />
-      <div
-        className="h-80 flex items-center justify-center bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url("/src/assets/images/wavesAzul.png")' }}
-      >
-        <p className="text-8xl font-amatica font-bold text-white my-4">
+      <div className="h-80 flex items-center justify-center bg-cover  bg-center bg-no-repeat">
+        <p className="text-4xl md:text-8xl font-amatica font-bold text-blue-400 my-4">
           <span className="text-yellow-500">FRI</span>ENDS & TRI
           <span className="text-yellow-500">PS</span>
         </p>
       </div>
       {/* Organiza viajes */}
-      <div
-        className="mt-2 h-60 flex justify-center bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url("/src/assets/images/wavesVerde.png")' }}
-      >
-        <div className="mx-52 mt-4">
-          <p className=" text-3xl font-comfortaa font-bold text-white">
+      <div className="mt-2 h-60 flex justify-center bg-cover bg-center bg-no-repeat">
+        <div className=" mt-4">
+          <p className=" text-3xl font-comfortaa font-bold text-orange-400">
             Organiza viajes con tus amigos, todo en un solo lugar, compartido
             entre todos
           </p>
@@ -182,16 +176,16 @@ const Home = () => {
         </div>
       </div>
       {/* Kilometros recorridos */}
-      <div className="mt-52 h-60 flex justify-center bg-cover bg-center bg-no-repeat">
+      <div className=" h-60 flex justify-center bg-cover bg-center bg-no-repeat">
         <div className="mx-52">
-          <p className=" text-yellow-500 text-3xl font-comfortaa font-bold text-white tracking-widest">
+          <p className="inline-block text-yellow-500 text-3xl font-comfortaa font-bold tracking-widest">
             Mira que lejos hemos llegado!
           </p>
         </div>
       </div>
 
-      <div className=" flex rounded-lg h-60 w-full justify-center items-center">
-        <div className="mr-auto">
+      <div className=" flex rounded-lg  w-full justify-center items-center">
+        <div className="mx-auto">
           <img
             src={Viajero}
             alt="Hifive"
@@ -210,7 +204,7 @@ const Home = () => {
         </div>
       </div>
       {/* Footer */}
-      <div className="bg-gray-white mt-48 mb-32">
+      <div className="bg-gray-white  mb-32">
         <div className="flex items-center justify-center bg-white-100">
           <h1 className="text-4xl font-bold text-gray-800 mb-4">
             ¡Podrás compartir más que solo el viaje!
@@ -241,11 +235,6 @@ const Home = () => {
             </li>
             <li className="m-8">
               <div className="flex items-center justify-center w-40 h-40 rounded-full bg-blue-600 text-white text-2xl font-amatica">
-                Reseñas
-              </div>
-            </li>
-            <li className="m-8">
-              <div className="flex items-center justify-center w-40 h-40 rounded-full bg-yellow-500 text-white text-2xl font-amatica">
                 Calendario de planes
               </div>
             </li>
@@ -258,11 +247,9 @@ const Home = () => {
           <h2 className="text-4xl font-semibold text-white mb-16 font-amatica">
             Frips
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-2xl font-semibold text-white mb-4">
-                Grupo 05
-              </h3>
+          <div>
+            <h3 className="text-2xl font-semibold text-white mb-4">Grupo 05</h3>
+            <div className="flex flex-col justify-center md:flex md:flex-row md:gap-8">
               <p className="text-lg text-white mb-8">Marck Rojas</p>
               <p className="text-lg text-white mb-8">Diego Apuy</p>
               <p className="text-lg text-white mb-8">Mariano</p>

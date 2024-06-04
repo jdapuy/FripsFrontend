@@ -36,11 +36,6 @@ const PlanForm = () => {
       ...prevState,
       [fieldName]: JSON.stringify(location),
     }));
-    console.log(
-      `${fieldName} (latitude, longitude):`,
-      location.lat,
-      location.lng
-    );
   };
 
   const handleSubmit = async (e) => {
@@ -63,7 +58,6 @@ const PlanForm = () => {
           },
         }
       );
-      console.log(response.data);
       navigateTo(`/group/${groupId}/itinerary/${itineraryId}/plan`); // Redirige después de guardar el plan
     } catch (error) {
       console.error("Error creating plan:", error);

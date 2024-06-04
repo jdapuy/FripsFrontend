@@ -52,7 +52,6 @@ const Cloud = () => {
             if (error) {
               console.error("Upload Widget Error:", error);
             } else {
-              console.log(result);
               setAddedSource(result);
             }
           }
@@ -94,42 +93,42 @@ const Cloud = () => {
         </button>
       </div>
       <main className="p-8 flex flex-col mx-auto align-middle w-2/4 justify-center space-y-4">
-        <div>
-          <div className="flex justify-between space-x-4">
-            <p
-              className="h-12 w-12 cursor-pointer text-4xl my-4"
-              onClick={() => handleFolderClick("image")}
-            >
-              Image 📁
-            </p>
-            <p
-              className="h-12 w-12 cursor-pointer text-4xl my-4"
-              onClick={() => handleFolderClick("video")}
-            >
-              Video📁
-            </p>
-            <p
-              className="h-12 w-12 cursor-pointer text-4xl my-4"
-              onClick={() => handleFolderClick("mp3")}
-            >
-              MP3 📁
-            </p>
-            <p
-              className="h-12 w-12 cursor-pointer text-4xl my-4"
-              onClick={() => handleFolderClick("raw")}
-            >
-              Otros... 📁
-            </p>
-          </div>
-          {selectedType && (
-            <FilesTable
-              type={selectedType}
-              resources={resources[selectedType]}
-              setDeletedSource={setDeletedSource}
-            />
-          )}
+        <div className="flex flex-col md:flex-row gap-4 justify-between ">
+          <p
+            className="h-12 w-12 cursor-pointer text-4xl my-4"
+            onClick={() => handleFolderClick("image")}
+          >
+            Image 📁
+          </p>
+          <p
+            className="h-12 w-12 cursor-pointer text-4xl my-4"
+            onClick={() => handleFolderClick("video")}
+          >
+            Video 📁
+          </p>
+          <p
+            className="h-12 w-12 cursor-pointer text-4xl my-4"
+            onClick={() => handleFolderClick("mp3")}
+          >
+            MP3 📁
+          </p>
+          <p
+            className="h-12 w-12 cursor-pointer text-4xl my-4"
+            onClick={() => handleFolderClick("raw")}
+          >
+            Otros... 📁
+          </p>
         </div>
       </main>
+      <div className="mx-4">
+        {selectedType && (
+          <FilesTable
+            type={selectedType}
+            resources={resources[selectedType]}
+            setDeletedSource={setDeletedSource}
+          />
+        )}
+      </div>
     </div>
   );
 };

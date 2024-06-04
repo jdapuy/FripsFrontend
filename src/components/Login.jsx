@@ -29,7 +29,6 @@ const Login = () => {
         email,
         password,
       });
-      console.log("Login successful:", response.data);
       localStorage.setItem(
         "user",
         JSON.stringify({

@@ -4,7 +4,6 @@ import axios from "axios";
 
 const GroupCard = ({ name, groupId, onDelete }) => {
   const handleDelete = async () => {
-    console.log(groupId);
     try {
       const serverUrl =
         import.meta.env.VITE_SERVER_URL || "http://localhost:3001";
