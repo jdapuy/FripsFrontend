@@ -17,7 +17,7 @@ const Home = () => {
       {/* Frips */}
       <Toaster />
       <div className="h-80 flex items-center justify-center bg-cover  bg-center bg-no-repeat">
-        <p className="text-4xl md:text-8xl font-amatica font-bold text-blue-400 my-4">
+        <p className="text-4xl md:text-8xl font-bold text-blue-400 my-4">
           <span className="text-yellow-500">FRI</span>ENDS & TRI
           <span className="text-yellow-500">PS</span>
         </p>
@@ -214,27 +214,27 @@ const Home = () => {
         <div className="flex  items-center justify-center bg-white-100 min-h-60">
           <ul className="flex flex-col xl:flex xl:flex-row justify-between gap list-none">
             <li className="m-8 ">
-              <div className="flex items-center justify-center w-40 h-40 rounded-full bg-blue-600 text-white text-2xl font-amatica">
+              <div className="flex items-center justify-center w-40 h-40 rounded-full bg-blue-600 text-white text-2xl">
                 Km Viajados
               </div>
             </li>
             <li className="m-8">
-              <div className="flex items-center justify-center w-40 h-40 rounded-full bg-yellow-500 text-white text-2xl font-amatica">
+              <div className="flex items-center justify-center w-40 h-40 rounded-full bg-yellow-500 text-white text-2xl">
                 Archivos Importantes
               </div>
             </li>
             <li className="m-8">
-              <div className="flex items-center justify-center w-40 h-40 rounded-full bg-blue-600 text-white text-2xl font-amatica">
+              <div className="flex items-center justify-center w-40 h-40 rounded-full bg-blue-600 text-white text-2xl">
                 Itinerarios Diarios
               </div>
             </li>
             <li className="m-8">
-              <div className="flex items-center justify-center w-40 h-40 rounded-full bg-yellow-500 text-white text-2xl font-amatica">
+              <div className="flex items-center justify-center w-40 h-40 rounded-full bg-yellow-500 text-white text-2xl">
                 Registro de gastos
               </div>
             </li>
             <li className="m-8">
-              <div className="flex items-center justify-center w-40 h-40 rounded-full bg-blue-600 text-white text-2xl font-amatica">
+              <div className="flex items-center justify-center w-40 h-40 rounded-full bg-blue-600 text-white text-2xl">
                 Calendario de planes
               </div>
             </li>
@@ -244,9 +244,7 @@ const Home = () => {
 
       <section className="pb-16 pt-8 px-8 md:px-16 lg:px-32 bg-blue-600">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-semibold text-white mb-16 font-amatica">
-            Frips
-          </h2>
+          <h2 className="text-4xl font-semibold text-white mb-16">Frips</h2>
           <div>
             <h3 className="text-2xl font-semibold text-white mb-4">Grupo 05</h3>
             <div className="flex flex-col justify-center md:flex md:flex-row md:gap-8">
