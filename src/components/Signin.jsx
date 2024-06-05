@@ -41,7 +41,7 @@ const Signin = () => {
   };
 
   return (
-    <div>
+    <div className="min-h-screen w-full bg-gradient-to-r from-blue-600 to-purple-600">
       <Toaster />
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0 h-screen">

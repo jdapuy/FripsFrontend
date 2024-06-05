@@ -65,10 +65,10 @@ const PlanForm = () => {
   };
 
   return (
-    <div>
+    <div className="min-h-screen w-full bg-gradient-to-r from-blue-600 to-purple-600">
       <ItineraryMenu />
 
-      <h1 className="m-10 text-3xl font-bold">Nuevo Plan</h1>
+      <h1 className="m-10 text-3xl font-bold text-white">Nuevo Plan</h1>
 
       <form
         onSubmit={handleSubmit}

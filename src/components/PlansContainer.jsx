@@ -87,9 +87,9 @@ const PlansContainer = () => {
   };
 
   return (
-    <div>
+    <div className="min-h-screen w-full bg-gradient-to-r from-blue-600 to-purple-600 ">
       <ItineraryMenu />
-      <h1 className="m-10 text-3xl font-bold">Planes</h1>
+      <h1 className="m-10 text-3xl font-bold text-white">Planes</h1>
       <div className="flex justify-center px-4 mb-4">
         <Link
           to={`/group/${groupId}/itinerary/${itineraryId}/planForm`}
@@ -103,7 +103,7 @@ const PlansContainer = () => {
           planes.Plans.map((plan, index) => (
             <div
               key={index}
-              className="shadow-lg w-auto rounded-lg p-4 flex flex-col items-center justify-center gap-2"
+              className="shadow-lg w-auto rounded-lg p-4 flex flex-col items-center justify-center gap-2 bg-white"
             >
               <div className="flex flex-row justify-center gap-4">
                 {plan?.Gastos?.some((gasto) => gasto.userId === user.userId) ? (

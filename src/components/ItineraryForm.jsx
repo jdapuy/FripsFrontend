@@ -58,11 +58,12 @@ const ItineraryForm = () => {
   };
 
   return (
-    <div>
+    <div className="min-h-screen w-full bg-gradient-to-r from-blue-600 to-purple-600">
       <Toaster />
       <ItineraryMenu />
+      <h1 className="m-10 text-white">Nuevo Itinerario</h1>
       <div className="flex items-center justify-center h-full">
-        <div className="w-full max-w-md bg-white rounded-lg shadow-2xl border-gray-300 border p-8 mt-20">
+        <div className="w-full max-w-md bg-white rounded-lg shadow-2xl border-gray-300 border p-8 ">
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label

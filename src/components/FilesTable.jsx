@@ -34,45 +34,45 @@ const FilesTable = ({ type, resources, setDeletedSource }) => {
     }
   };
   return (
-    <div className="mt-20">
-      <h1 className="my-10">Tipo {type}</h1>
-      <table className="min-w-full bg-white">
-        <thead>
-          <tr>
-            <th className="py-2">Nombre</th>
-            <th className="py-2">Tipo</th>
-            <th className="py-2">Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {resources?.map((resource) => (
-            <tr key={resource.public_id}>
-              <td className="border px-4 py-2">
-                {resource.public_id.slice(2)}
-              </td>
-              <td className="border px-4 py-2">{resource.resource_type}</td>
-              <td className="border px-4 py-2">
-                <button
-                  onClick={() =>
-                    handleDownload(resource.secure_url, resource.public_id)
-                  }
-                  className="mr-2 inline-flex items-center px-2 py-1 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-md"
-                >
-                  Descargar
-                </button>
-                <button
-                  onClick={() =>
-                    handleDelete(resource.public_id, resource.resource_type)
-                  }
-                  className="inline-flex items-center px-2 py-1 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-md"
-                >
-                  Eliminar
-                </button>
-              </td>
+    <div className="  p-6">
+      <h1 className="text-3xl font-bold mb-6 text-white">Tipo {type}</h1>
+      <div className="overflow-x-auto">
+        <table className="min-w-full table-auto bg-gray-100  ">
+          <thead>
+            <tr className="bg-blue-500 text-white">
+              <th className="px-4 py-2">Nombre</th>
+              <th className="px-4 py-2">Tipo</th>
+              <th className="px-4 py-2">Acciones</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {resources?.map((resource) => (
+              <tr key={resource.public_id} className="border-b">
+                <td className="px-4 py-2">{resource.public_id.slice(2)}</td>
+                <td className="px-4 py-2">{resource.resource_type}</td>
+                <td className="px-4 py-2">
+                  <button
+                    onClick={() =>
+                      handleDownload(resource.secure_url, resource.public_id)
+                    }
+                    className="mr-2 inline-flex items-center px-3 py-1 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-md transition duration-300"
+                  >
+                    Descargar
+                  </button>
+                  <button
+                    onClick={() =>
+                      handleDelete(resource.public_id, resource.resource_type)
+                    }
+                    className="inline-flex items-center px-3 py-1 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-md transition duration-300"
+                  >
+                    Eliminar
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

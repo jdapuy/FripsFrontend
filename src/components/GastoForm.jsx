@@ -49,9 +49,9 @@ const GastoForm = () => {
   };
 
   return (
-    <div>
+    <div className="min-h-screen w-full bg-gradient-to-r from-blue-600 to-purple-600">
       <ItineraryMenu />
-      <h1 className="m-10 text-3xl font-bold">Nuevo Gasto</h1>
+      <h1 className="m-10 text-3xl font-bold text-white">Nuevo Gasto</h1>
       <form
         onSubmit={handleSubmit}
         className="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-md space-y-4"

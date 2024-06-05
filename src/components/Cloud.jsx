@@ -80,10 +80,10 @@ const Cloud = () => {
   };
 
   return (
-    <div>
+    <div className="min-h-screen w-full bg-gradient-to-r from-blue-600 to-purple-600">
       <Toaster />
       <ItineraryMenu />
-      <h1 className="m-10 text-3xl font-bold">Almacenamiento</h1>
+      <h1 className="m-10 text-3xl font-bold text-white">Almacenamiento</h1>
       <div className="flex justify-center px-4 mb-4">
         <button
           onClick={handleUploadClick} // Cambiado aquí para llamar a handleUploadClick
@@ -95,25 +95,25 @@ const Cloud = () => {
       <main className="p-8 flex flex-col mx-auto align-middle w-2/4 justify-center space-y-4">
         <div className="flex flex-col md:flex-row gap-4 justify-between ">
           <p
-            className="h-12 w-12 cursor-pointer text-4xl my-4"
+            className="h-12 w-12 cursor-pointer text-4xl my-4 text-white"
             onClick={() => handleFolderClick("image")}
           >
             Image 📁
           </p>
           <p
-            className="h-12 w-12 cursor-pointer text-4xl my-4"
+            className="h-12 w-12 cursor-pointer text-4xl my-4 text-white"
             onClick={() => handleFolderClick("video")}
           >
             Video 📁
           </p>
           <p
-            className="h-12 w-12 cursor-pointer text-4xl my-4"
+            className="h-12 w-12 cursor-pointer text-4xl my-4 text-white"
             onClick={() => handleFolderClick("mp3")}
           >
             MP3 📁
           </p>
           <p
-            className="h-12 w-12 cursor-pointer text-4xl my-4"
+            className="h-12 w-12 cursor-pointer text-4xl my-4 text-white"
             onClick={() => handleFolderClick("raw")}
           >
             Otros... 📁

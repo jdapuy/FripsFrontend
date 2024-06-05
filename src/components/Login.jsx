@@ -61,7 +61,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen ">
+    <div className="min-h-screen w-full bg-gradient-to-r from-blue-600 to-purple-600 flex flex-col items-center justify-center h-screen ">
       <Toaster />
       <div className="w-full max-w-md bg-white rounded-lg border-gray-300 border-4 shadow-2xl  p-6">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Login</h2>

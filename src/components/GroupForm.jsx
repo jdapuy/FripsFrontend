@@ -62,7 +62,8 @@ function GroupForm() {
   return (
     <>
       <Toaster />
-      <div className="flex flex-col lg:flex-row items-center justify-around h-screen">
+
+      <div className="bg-gradient-to-r from-blue-600 to-purple-600 flex flex-col lg:flex-row items-center justify-around h-screen">
         <aside className="hidden lg:block mb-4 lg:mb-0 md:mr-4">
           <img
             src={HombreMapa}
@@ -71,7 +72,7 @@ function GroupForm() {
           />
         </aside>
         <div className="mt-32 lg:mt-0">
-          <h1 className="py-4 w-full max-w-md">Crear Grupo</h1>
+          <h1 className="py-4 w-full max-w-md text-white">Crear Grupo</h1>
           <main className="w-full max-w-md   bg-white rounded-lg shadow-2xl  border-gray-300 border p-8">
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>

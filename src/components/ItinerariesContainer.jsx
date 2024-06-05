@@ -116,8 +116,8 @@ const ItinerariesContainer = () => {
   };
 
   return (
-    <div className="pt-8 flex flex-col h-screen">
-      <h1 className="m-10">Itinerarios</h1>
+    <div className="pt-8 min-h-screen w-full bg-gradient-to-r from-blue-600 to-purple-600 flex flex-col">
+      <h1 className="m-10 text-white">Itinerarios</h1>
       <div className="flex justify-center px-4 mb-4">
         <Link
           to={`/group/${groupId}/itineraryForm`}
@@ -126,12 +126,12 @@ const ItinerariesContainer = () => {
           + Nuevo Itinerario
         </Link>
       </div>
-      <main className="p-8 flex flex-col mx-auto align-middle md:w-1/4 justify-center space-y-4">
+      <main className="p-8 flex flex-col mx-auto align-middle md:w-1/4 justify-center space-y-4 ">
         {itineraries.length > 0 ? (
           itineraries.map((itinerary) => (
             <div
               key={itinerary.itinerarioId}
-              className="shadow-lg w-max md:w-auto rounded-lg p-4 flex flex-col items-center justify-center gap-2"
+              className="shadow-lg w-full md:w-auto rounded-lg p-4 flex flex-col items-center justify-center gap-2 bg-white"
             >
               <div className="flex flex-row gap-4">
                 <div className="flex flex-row gap-4">

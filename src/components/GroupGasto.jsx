@@ -192,26 +192,26 @@ const GroupGasto = () => {
   };
 
   return (
-    <div>
+    <div className="min-h-screen w-full bg-gradient-to-r from-blue-600 to-purple-600">
       <ItineraryMenu />
-      <main className="container mx-auto mt-10">
+      <main className="container mx-auto mt-10 ">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="p-6 bg-white rounded-lg shadow-md">
-            <h1 className="text-lg font-semibold mb-4">Gastos totales</h1>
+          <div className="p-6  rounded-lg shadow-md bg-gradient-to-r from-white to-purple-300">
+            <h1 className="text-2xl font-bold mb-4">Gastos totales</h1>
             <p className="text-2xl text-orange-500">{totalExpenses}</p>
           </div>
-          <div className="p-6 bg-white rounded-lg shadow-md">
-            <h1 className="text-lg  font-semibold mb-4">Mi Gasto</h1>
+          <div className="p-6  rounded-lg shadow-md bg-gradient-to-r from-white to-blue-300">
+            <h1 className="text-2xl  font-bold mb-4">Mi Gasto</h1>
             <p className="text-2xl text-orange-500">{personalExpense}</p>
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-          <div className="p-6 bg-white rounded-lg shadow-md">
-            <h1 className="text-lg font-semibold mb-4">Integrantes</h1>
+        <div className="grid grid-cols-1  md:grid-cols-2 gap-8 mt-8">
+          <div className="p-6  rounded-lg shadow-md  bg-gradient-to-r from-white to-purple-300">
+            <h1 className="text-2xl font-bold mb-4">Integrantes</h1>
             <Pie data={pieData} />
           </div>
-          <div className="p-6 bg-white rounded-lg shadow-md">
-            <h1 className="text-lg font-semibold mb-4">Itinerarios</h1>
+          <div className="p-6  rounded-lg shadow-md bg-gradient-to-r from-white to-blue-300">
+            <h1 className="text-2xl font-bold mb-4">Itinerarios</h1>
             <Bar options={options} data={barData} />
           </div>
         </div>

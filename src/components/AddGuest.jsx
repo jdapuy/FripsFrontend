@@ -60,7 +60,7 @@ function AddGuest() {
   };
 
   return (
-    <>
+    <div className="min-h-screen w-full bg-gradient-to-r from-blue-600 to-purple-600">
       <Toaster />
       <div className="flex flex-col lg:flex-row items-center justify-around h-screen">
         <aside className="hidden lg:block mb-4 lg:mb-0 md:mr-4">
@@ -71,7 +71,7 @@ function AddGuest() {
           />
         </aside>
         <div className="mt-32 lg:mt-0">
-          <h1 className="py-4 w-full max-w-md">Agregar Invitados</h1>
+          <h1 className="py-4 w-full max-w-md text-white">Agregar Invitados</h1>
           <main className="w-full max-w-md   bg-white rounded-lg shadow-2xl  border-gray-300 border p-8">
             <form onSubmit={handleSubmit} className="space-y-4">
               {guestEmails.map((email, index) => (
@@ -125,7 +125,7 @@ function AddGuest() {
           />
         </aside>
       </div>
-    </>
+    </div>
   );
 }
 

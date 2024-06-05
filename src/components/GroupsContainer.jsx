@@ -36,10 +36,12 @@ const GroupsContainer = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 mt-20">
-      <h1 className="font-bold text-center mb-6">Grupos</h1>
-      <div className="flex flex-wrap justify-around mt-10 gap-10">
-        {/* la primera card es para crear un grupo */}
+    <div className="min-h-screen w-full bg-gradient-to-r from-blue-600 to-purple-600 flex flex-col items-center justify-center">
+      <h1 className="mt-20 md:mt-0 text-5xl md:text-8xl font-extrabold mb-10 text-center text-yellow-400">
+        ¡Explora tus Grupos!
+      </h1>
+      <div className="flex flex-wrap justify-center  gap-8">
+        {/* La primera tarjeta es para crear un grupo */}
         <CreateGroupCard />
         {myGroups.map((group) => (
           <GroupCard
